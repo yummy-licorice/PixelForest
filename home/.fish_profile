@@ -1,2 +1,3 @@
 set -p PATH $HOME/Odin
 set -p PATH ~/.bun/bin
+set -p PATH ~/.local/bin/
