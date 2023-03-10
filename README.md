@@ -4,7 +4,7 @@
 
 Please leave a star if you like them
 
-![Showcase Image](aseets/hook.png)
+![hook](https://user-images.githubusercontent.com/88919270/224413134-6b67c3ed-6abb-4960-a3db-64949614d48a.png)
 
 ## Fonts
 
@@ -45,3 +45,7 @@ make [<component>]
 |rofi|Rofi App Launcher configuration|
 |dunst|Dunst notification daemon configurations|
 |eww|Bar and widgets|
+
+## Showcase
+![dunst](https://user-images.githubusercontent.com/88919270/224413316-ad77d503-fa39-49fc-9b33-af4ebaf633f0.png)
+![rofi](https://user-images.githubusercontent.com/88919270/224413368-87182738-eef7-4e0a-910a-490ebc7c87f1.png)
