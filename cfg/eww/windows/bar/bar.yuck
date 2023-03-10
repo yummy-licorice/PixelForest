@@ -1,0 +1,89 @@
+(defwindow bar
+  :monitor 0
+  :geometry (geometry
+    :x "0%"
+    :y "10px"
+    :width "99%"
+    :height "35px"
+  :anchor "top center")
+  :stacking "fg"
+  :reserve (struts :distance "45px" :side "top")
+  :windowtype "dock"
+  :wm-ignore false
+  (barContainer))
+
+(deflisten ws "scripts/tags")
+(deflisten win "scripts/window")
+(defpoll time :interval "30s" `date +"%I:%M %p"`)
+(defpoll date :interval "30m" `date +"%x"`)
+(defpoll volume :interval "1ms" "pamixer --get-volume-human")
+(defpoll sink :interval "10s" "scripts/volume sink")
+(defpoll brightness :interval "1ms" "scripts/brightness")
+(defpoll monitor :interval "90s" "scripts/brightness mon")
+(defpoll batteryState :interval "5s" "scripts/battery state")
+(defpoll batteryCharge :interval "10s" "scripts/battery")
+(defpoll batteryTime :interval "10s" "scripts/battery time")
+(defpoll ssid :interval "30s" "scripts/network")
+(defpoll adapter :interval "10m" "scripts/network adapter")
+
+(defwidget barContainer []
+  (box :class "bar"
+    :orientation "h"
+    (left)
+    (center)
+    (right)
+  )
+)
+
+(defwidget left []
+  (box :orientation "h"
+    :space-evenly "false"
+    :halign "start"
+    :class "left"
+    (box
+      :orientation "h"
+      :halign "start"
+      (eventbox
+        :onscroll "scripts/scroll {}"
+        (box
+          :orientation "h"
+          :halign "start"
+          (literal :content ws)
+        )
+      )
+    )
+  )
+)
+
+(defwidget center []
+  (box :class "center"
+    :space-evenly "false"
+    :halign "center"
+    :orientation "h"
+    win
+  )
+)
+
+(defwidget right []
+  (box :class "right"
+    :space-evenly "false"
+    :spacing 7
+    :halign "end"
+    :orientation "h"
+    ; Add tooltips to all of the widgets
+    ; Battery - Time to full
+    ; Network - Adapter name
+    (eventbox
+      :onscroll "scripts/volume {}"
+      :onclick "pamixer -t"
+      (label :class "volume" :text " ${volume}" :tooltip sink)
+    )
+    (eventbox
+      :onscroll "scripts/brightness scroll {}"
+      (label :class "brightness" :text " ${brightness}%" :tooltip monitor)
+    )
+    (label :class "battery" :text "${batteryState} ${batteryCharge}%" :tooltip batteryTime)
+    (label :class "network" :text " ${ssid}" :tooltip adapter)
+    (label :class "time" :text " ${time}" :tooltip date)
+  )
+)

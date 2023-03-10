@@ -1,0 +1,2 @@
+set -p PATH $HOME/Odin
+set -p PATH ~/.bun/bin

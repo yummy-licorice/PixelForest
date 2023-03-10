@@ -1,0 +1,86 @@
+@import "_colors.scss";
+
+.bar {
+    background-color: $bg0;
+    color: $fg;
+    font-family: 'Cozette';
+    font-size: 14;
+}
+
+.left {
+    padding-top: 8;
+    padding-left: 8;
+}
+
+.center {
+    background-color: $bg2;
+    margin-top: 8;
+    margin-bottom: 8;
+    padding-left: 8;
+    padding-right: 8;
+}
+
+.right {
+    padding: 8;
+}
+
+.vacant {
+    background-color: $bg2;
+    color: $fg;
+    padding-top: 1;
+    padding-bottom: 1;
+    padding-left: 7;
+    padding-right: 7;
+    margin-right: 7;
+}
+
+.occupied {
+    background-color: $bg2;
+    color: $green;
+    padding-top: 1;
+    padding-bottom: 1;
+    padding-left: 7;
+    padding-right: 7;
+    margin-right: 7;
+}
+
+.focused {
+    background-color: $fg;
+    color: $bg1;
+    padding-top: 1;
+    padding-bottom: 1;
+    padding-left: 7;
+    padding-right: 7;
+    margin-right: 7;
+}
+
+.time, .volume, .battery, .network, .brightness {
+    background-color: $bg2;
+    font-family: 'Cozette';
+    padding-top: 1;
+    padding-bottom: 1;
+    padding-top: 1;
+    padding-bottom: 1;
+    padding-left: 7;
+    padding-right: 7;
+}
+
+.time {
+    color: $blue
+}
+
+.volume {
+    color: $yellow
+}
+
+.battery {
+    color: $green;
+}
+
+.network {
+    color: $magenta
+}
+
+.brightness {
+    color: $cyan; 
+}
